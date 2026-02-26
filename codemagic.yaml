@@ -1,17 +1,21 @@
+# Documentation: https://docs.codemagic.io/yaml-basic-configuration/yaml-getting-started/
+
 workflows:
   ios-release:
-    name: Vertex AI iOS Release Build
+    name: Vertex AI Studio iOS Release
     max_build_duration: 60
-    instance_type: mac_mini_m2 
+    instance_type: mac_mini_m2 # Kay-koun asra3 f l-build
 
     environment:
       flutter: stable
-      xcode: latest 
+      xcode: latest
       vars:
-        APP_ID: "6759197841" # Beddel hada b l-ID dyal l-app dyalk
+        # Beddel hada b l-Apple ID li fiha 10 d l-arqam mn App Store Connect
+        APP_ID: "6759197841" 
 
     integrations:
-      app_store_connect: "vertex" # Smiya li derti f Codemagic Integrations
+      # Hada houwa l-ism "vertex" li 3ndk f l-image
+      app_store_connect: "vertex"
 
     scripts:
       - name: Get Flutter packages
@@ -21,14 +25,15 @@ workflows:
       - name: Set up code signing
         script: |
           keychain initialize
-          # Beddel "com.your.bundle.id" b l-Bundle ID dyal Vertex AI
-          app-store-connect fetch-signing-files "com.ai.ver" --project-id "6759197841" --type IOS_APP_STORE --create
+          # Hna dkhlna l-Bundle ID dyalk "com.ai.ver"
+          app-store-connect fetch-signing-files "com.ai.ver" --project-id "$APP_ID" --type IOS_APP_STORE --create
           keychain add-certificates
           xcode-project use-profiles
 
       - name: Build iOS release
         script: |
-          flutter build ipa --release --export-method app-store
+          # Zid --no-codesign bach Xcode may-qellebch 3la accounts
+          flutter build ipa --release --export-method app-store --no-codesign
 
     artifacts:
       - build/ios/ipa/*.ipa
@@ -40,5 +45,4 @@ workflows:
       
       app_store_connect:
         auth: integration
-        submit_to_testflight: true 
-        # Hna hayyedna "beta_app_review_submission" bach may-bqaich l-error
+        submit_to_testflight: true

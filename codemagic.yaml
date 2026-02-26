@@ -22,7 +22,7 @@ workflows:
         script: |
           keychain initialize
           # Beddel "com.your.bundle.id" b l-Bundle ID dyal Vertex AI
-          app-store-connect fetch-signing-files "com.your.bundle.id" --project-id "$APP_ID" --type IOS_APP_STORE --create
+          app-store-connect fetch-signing-files "com.ai.ver" --project-id "6759197841" --type IOS_APP_STORE --create
           keychain add-certificates
           xcode-project use-profiles
 

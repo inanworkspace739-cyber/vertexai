@@ -11,7 +11,7 @@ workflows:
         APP_ID: "6759197841" # Beddel hada b l-ID dyal l-app dyalk
 
     integrations:
-      app_store_connect: "R5X88SYZ58" # Smiya li derti f Codemagic Integrations
+      app_store_connect: "vertex" # Smiya li derti f Codemagic Integrations
 
     scripts:
       - name: Get Flutter packages

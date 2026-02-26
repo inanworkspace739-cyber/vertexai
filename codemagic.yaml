@@ -1,21 +1,17 @@
-# Documentation: https://docs.codemagic.io/yaml-basic-configuration/yaml-getting-started/
-
 workflows:
   ios-release:
     name: Vertex AI iOS Release Build
     max_build_duration: 60
-    instance_type: mac_mini_m2 # Asra3 bach may-fchelch l-build f l-waqt
+    instance_type: mac_mini_m2 
 
     environment:
       flutter: stable
-      xcode: latest # Kay-khdem m3a Flutter 3.24+ 
+      xcode: latest 
       vars:
-        # Hna t-qdder t-zid APP_STORE_APPLE_ID ila bghiti
-        APP_ID: "6759197841" 
+        APP_ID: "6759197841" # Beddel hada b l-ID dyal l-app dyalk
 
-    # Hada houwa l-hal dyal l-error li lqiti f publishing
     integrations:
-      app_store_connect: "vertexai" # Smiya li derti f Codemagic Integrations
+      app_store_connect: "R5X88SYZ58" # Smiya li derti f Codemagic Integrations
 
     scripts:
       - name: Get Flutter packages
@@ -25,14 +21,13 @@ workflows:
       - name: Set up code signing
         script: |
           keychain initialize
-          # Beddel "com.your.bundle.id" b l-Bundle ID dyal l-app dyalk
+          # Beddel "com.your.bundle.id" b l-Bundle ID dyal Vertex AI
           app-store-connect fetch-signing-files "com.your.bundle.id" --project-id "$APP_ID" --type IOS_APP_STORE --create
           keychain add-certificates
           xcode-project use-profiles
 
       - name: Build iOS release
         script: |
-          # Darouri --export-method bach t-creeya l-IPA l-Apple Store
           flutter build ipa --release --export-method app-store
 
     artifacts:
@@ -41,9 +36,9 @@ workflows:
     publishing:
       email:
         recipients:
-          - inanworkspace739@gmail.com # L-email dyalk bach i-wslek l-khbar
+          - inanworkspace739@gmail.com # L-email dyalk
       
       app_store_connect:
         auth: integration
-        submit_to_testflight: true # Ghadi t-tl3 direct l-TestFlight
-        beta_app_review_submission: false
+        submit_to_testflight: true 
+        # Hna hayyedna "beta_app_review_submission" bach may-bqaich l-error

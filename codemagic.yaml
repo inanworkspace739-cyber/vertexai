@@ -1,17 +1,40 @@
-scripts:
+workflows:
+  ios-release:
+    name: Vertex AI iOS Release
+    max_build_duration: 60
+    instance_type: mac_mini_m2 # Kay-koun asra3 f l-build
+
+    environment:
+      flutter: stable
+      xcode: latest
+      groups:
+        - apple_auth # Smmit l-group f Codemagic Environment variables
+
+    scripts:
       - name: Get Flutter packages
         script: |
           flutter pub get
-      
+
       - name: Set up code signing
         script: |
           keychain initialize
           # Hna Codemagic khasso i-fetchi l-certificates mn Apple
+          # Beddel "com.your.bundle.id" b l-Bundle ID dyal Vertex AI
           app-store-connect fetch-signing-files "com.your.bundle.id" --project-id "YOUR_APP_ID" --type IOS_APP_STORE --create
           keychain add-certificates
           xcode-project use-profiles
 
       - name: Build iOS release
         script: |
-          # Darouri t-زيد --export-method app-store
           flutter build ipa --release --export-method app-store
+
+    artifacts:
+      - build/ios/ipa/*.ipa
+
+    publishing:
+      email:
+        recipients:
+          - inanworkspace739@gmail.com # Hada houwa l-mail li m-affichi 3ndk f l-image
+      app_store_connect:
+        auth: integration
+        submit_to_testflight: true

@@ -1,23 +1,26 @@
-# Documentation: https://docs.codemagic.io/yaml-basic-configuration/yaml-getting-started/
-
 workflows:
   ios-release:
     name: Vertex AI Studio iOS Release
     max_build_duration: 60
-    instance_type: mac_mini_m2 # Kay-koun asra3 f l-build
+    instance_type: mac_mini_m2
 
     environment:
       flutter: stable
       xcode: latest
       vars:
-        # Beddel hada b l-Apple ID li fiha 10 d l-arqam mn App Store Connect
-        APP_ID: "6759197841" 
+        APP_ID: "6759197841" # Beddel hada b-Apple ID dyal 10 arqam
+      groups:
+        - google_auth # T-akked derti variable DOTENV_FILE hna
 
     integrations:
-      # Hada houwa l-ism "vertex" li 3ndk f l-image
       app_store_connect: "vertex"
 
     scripts:
+      - name: Create .env file
+        script: |
+          # Had l-script k-y-creeyi l-file li Flutter k-y-9elleb 3lih
+          echo "$DOTENV_FILE" > .env
+
       - name: Get Flutter packages
         script: |
           flutter pub get
@@ -25,14 +28,12 @@ workflows:
       - name: Set up code signing
         script: |
           keychain initialize
-          # Hna dkhlna l-Bundle ID dyalk "com.ai.ver"
           app-store-connect fetch-signing-files "com.ai.ver" --project-id "$APP_ID" --type IOS_APP_STORE --create
           keychain add-certificates
           xcode-project use-profiles
 
       - name: Build iOS release
         script: |
-          # Zid --no-codesign bach Xcode may-qellebch 3la accounts
           flutter build ipa --release --export-method app-store --no-codesign
 
     artifacts:
@@ -41,8 +42,7 @@ workflows:
     publishing:
       email:
         recipients:
-          - inanworkspace739@gmail.com # L-email dyalk
-      
+          - inanworkspace739@gmail.com
       app_store_connect:
         auth: integration
         submit_to_testflight: true

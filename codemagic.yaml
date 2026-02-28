@@ -3,7 +3,6 @@ workflows:
     name: Vertex AI Studio iOS Release
     max_build_duration: 60
     instance_type: mac_mini_m2
-
     environment:
       flutter: stable
       xcode: latest
@@ -11,17 +10,8 @@ workflows:
         APP_ID: "6759197841"
       groups:
         - google_auth
-
     integrations:
       app_store_connect: "vertex"
-
-    triggering:
-      events:
-        - push
-      branch_filter:
-        include:
-          - main
-
     scripts:
       - name: Create .env file
         script: |
@@ -38,10 +28,8 @@ workflows:
       - name: Build iOS release
         script: |
           flutter build ipa --release --export-method app-store --no-codesign
-
     artifacts:
       - build/ios/ipa/*.ipa
-
     publishing:
       app_store_connect:
         auth: integration

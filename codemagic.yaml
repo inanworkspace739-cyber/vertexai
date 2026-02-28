@@ -8,47 +8,44 @@ workflows:
       flutter: stable
       xcode: latest
       vars:
-        APP_ID: "6759197841" # Apple ID dyal l-app dyalk
+        APP_ID: "6759197841"
       groups:
-        - google_auth # Fin derti DOTENV_FILE
+        - google_auth
 
     integrations:
-      app_store_connect: "vertex" # Smyt l-API Key f Codemagic
+      app_store_connect: "vertex"
 
     scripts:
       - name: Create .env file
         script: |
-          # Hadi darouriya bach l-app mat-crash-ich
           echo "$DOTENV_FILE" > .env
-
       - name: Get Flutter packages
         script: |
           flutter pub get
-
       - name: Set up code signing
         script: |
           keychain initialize
-          # T-akked mn Bundle ID "com.ai.ver"
           app-store-connect fetch-signing-files "com.ai.ver" --project-id "$APP_ID" --type IOS_APP_STORE --create
           keychain add-certificates
           xcode-project use-profiles
-
       - name: Build iOS release
         script: |
-          # Build l-IPA
           flutter build ipa --release --export-method app-store --no-codesign
 
     artifacts:
       - build/ios/ipa/*.ipa
 
+    # --- L-hadi hiya l-blasa s-shika dyal 'when' ---
+    triggering:
+      events:
+        - push
+      branches:
+        - main
+
     publishing:
-      # Hadi hiya l-blasa li k-t-sifet l-app l-Apple
       app_store_connect:
         auth: integration
         submit_to_testflight: true
       email:
         recipients:
           - inanworkspace739@gmail.com
-      # --- DAROURI: bach may-bqaich i-dir Skipping ---
-      when:
-        branch: main

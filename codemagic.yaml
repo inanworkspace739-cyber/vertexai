@@ -28,12 +28,13 @@ workflows:
       - name: Build iOS release
         script: |
           flutter build ipa --release --export-method app-store --no-codesign
+      - name: Publish to App Store
+        script: |
+          # Had l-script ghadi y-sifet l-IPA li t-creeya f l-khotwa li fatet
+          app-store-connect publish --bundle-id "com.ai.ver"
     artifacts:
       - build/ios/ipa/*.ipa
     publishing:
-      app_store_connect:
-        auth: integration
-        submit_to_testflight: true
       email:
         recipients:
           - inanworkspace739@gmail.com

@@ -22,17 +22,18 @@ workflows:
       - name: Set up code signing
         script: |
           keychain initialize
+          # Kan-fetch-iw l-profiles dyal App Store d-dabt
           app-store-connect fetch-signing-files "com.ai.ver" --project-id "$APP_ID" --type IOS_APP_STORE --create
           keychain add-certificates
           xcode-project use-profiles
       - name: Build iOS release
         script: |
-          # Ghadi n-force-i l-output y-koun f blasa bayna
-          flutter build ipa --release --export-method app-store --no-codesign
+          # Build l-IPA m-signé
+          flutter build ipa --release --export-method app-store
       - name: Publish to App Store
         script: |
-          # Daba ghadi n-warriw l-Codemagic fin d-dabt kayn l-file .ipa
-          app-store-connect publish --path $(find build/ios/ipa -name "*.ipa")
+          # Hna l-upload l-Apple
+          app-store-connect publish --path build/ios/ipa/*.ipa
     artifacts:
       - build/ios/ipa/*.ipa
     publishing:

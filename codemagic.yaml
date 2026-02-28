@@ -8,9 +8,9 @@ workflows:
       flutter: stable
       xcode: latest
       vars:
-        APP_ID: "6759197841" # Beddel hada b-Apple ID dyal 10 arqam
+        APP_ID: "6759197841"
       groups:
-        - google_auth # T-akked derti variable DOTENV_FILE hna
+        - google_auth
 
     integrations:
       app_store_connect: "vertex"
@@ -18,20 +18,16 @@ workflows:
     scripts:
       - name: Create .env file
         script: |
-          # Had l-script k-y-creeyi l-file li Flutter k-y-9elleb 3lih
           echo "$DOTENV_FILE" > .env
-
       - name: Get Flutter packages
         script: |
           flutter pub get
-
       - name: Set up code signing
         script: |
           keychain initialize
           app-store-connect fetch-signing-files "com.ai.ver" --project-id "$APP_ID" --type IOS_APP_STORE --create
           keychain add-certificates
           xcode-project use-profiles
-
       - name: Build iOS release
         script: |
           flutter build ipa --release --export-method app-store --no-codesign
@@ -40,9 +36,9 @@ workflows:
       - build/ios/ipa/*.ipa
 
     publishing:
-      email:
-        recipients:
-          - inanworkspace739@gmail.com
       app_store_connect:
         auth: integration
         submit_to_testflight: true
+      email:
+        recipients:
+          - inanworkspace739@gmail.com

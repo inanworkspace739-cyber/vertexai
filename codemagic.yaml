@@ -27,11 +27,12 @@ workflows:
           xcode-project use-profiles
       - name: Build iOS release
         script: |
+          # Ghadi n-force-i l-output y-koun f blasa bayna
           flutter build ipa --release --export-method app-store --no-codesign
       - name: Publish to App Store
         script: |
-          # Ghadi n-sifto l-IPA bla ma n-haddu bundle-id hit Codemagic k-t-lqah bohdha
-          app-store-connect publish
+          # Daba ghadi n-warriw l-Codemagic fin d-dabt kayn l-file .ipa
+          app-store-connect publish --path $(find build/ios/ipa -name "*.ipa")
     artifacts:
       - build/ios/ipa/*.ipa
     publishing:

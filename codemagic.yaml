@@ -30,8 +30,8 @@ workflows:
           flutter build ipa --release --export-method app-store --no-codesign
       - name: Publish to App Store
         script: |
-          # Had l-script ghadi y-sifet l-IPA li t-creeya f l-khotwa li fatet
-          app-store-connect publish --bundle-id "com.ai.ver"
+          # Ghadi n-sifto l-IPA bla ma n-haddu bundle-id hit Codemagic k-t-lqah bohdha
+          app-store-connect publish
     artifacts:
       - build/ios/ipa/*.ipa
     publishing:

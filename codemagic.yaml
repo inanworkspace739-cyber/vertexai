@@ -15,6 +15,13 @@ workflows:
     integrations:
       app_store_connect: "vertex"
 
+    triggering:
+      events:
+        - push
+      branch_filter:
+        include:
+          - main
+
     scripts:
       - name: Create .env file
         script: |
@@ -34,13 +41,6 @@ workflows:
 
     artifacts:
       - build/ios/ipa/*.ipa
-
-    # --- L-hadi hiya l-blasa s-shika dyal 'when' ---
-    triggering:
-      events:
-        - push
-      branches:
-        - main
 
     publishing:
       app_store_connect:

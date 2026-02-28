@@ -74,7 +74,7 @@ flutter:
 
   assets:
     - assets/
-   # - .env
+    - .env
 
 dependency_overrides:
   # Pin win32 to a pre-3.0 release to avoid SDK symbols missing on older Flutter/Dart

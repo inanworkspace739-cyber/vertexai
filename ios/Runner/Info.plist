@@ -55,7 +55,5 @@
 	<!-- Delay app measurement to allow you to obtain consent -->
 	<key>GADDelayAppMeasurementInit</key>
 	<true/>
-	<key>ITSAppUsesNonExemptEncryption</key>
-    <false/>
 </dict>
 </plist>

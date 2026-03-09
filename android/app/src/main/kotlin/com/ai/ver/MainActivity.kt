@@ -1,4 +1,4 @@
-package com.example.aittoooo
+package com.ai.ver
 
 import io.flutter.embedding.android.FlutterActivity
 

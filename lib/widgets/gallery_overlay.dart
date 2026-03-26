@@ -436,7 +436,7 @@ class _GalleryOverlayState extends State<GalleryOverlay>
             backgroundColor: Colors.transparent,
             elevation: 0,
             behavior: SnackBarBehavior.floating,
-            margin: const EdgeInsets.only(left: 16, right: 16, bottom: 160),
+            margin: const EdgeInsets.fromLTRB(16, 0, 16, 24),
             content: Container(
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
               decoration: BoxDecoration(
@@ -513,7 +513,7 @@ class _GalleryOverlayState extends State<GalleryOverlay>
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12),
           ),
-          margin: const EdgeInsets.only(left: 16, right: 16, bottom: 160),
+          margin: const EdgeInsets.all(16),
         ),
       );
     } finally {

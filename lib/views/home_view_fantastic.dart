@@ -427,11 +427,7 @@ class _HomeViewFantasticState extends State<HomeViewFantastic>
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(14),
                       ),
-                      margin: const EdgeInsets.only(
-                        left: 16,
-                        right: 16,
-                        bottom: 160,
-                      ),
+                      margin: const EdgeInsets.fromLTRB(16, 0, 16, 24),
                       duration: const Duration(seconds: 2),
                     ),
                   );
@@ -760,7 +756,7 @@ class _HomeViewFantasticState extends State<HomeViewFantastic>
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(12),
             ),
-            margin: const EdgeInsets.only(left: 16, right: 16, bottom: 160),
+            margin: const EdgeInsets.all(16),
           ),
         );
       } else {
@@ -829,7 +825,7 @@ class _HomeViewFantasticState extends State<HomeViewFantastic>
         backgroundColor: Colors.red.shade700,
         behavior: SnackBarBehavior.floating,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-        margin: const EdgeInsets.only(left: 16, right: 16, bottom: 160),
+        margin: const EdgeInsets.all(16),
       ),
     );
   }
@@ -911,11 +907,7 @@ class _HomeViewFantasticState extends State<HomeViewFantastic>
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(12),
                   ),
-                  margin: const EdgeInsets.only(
-                    left: 16,
-                    right: 16,
-                    bottom: 160,
-                  ),
+                  margin: const EdgeInsets.all(16),
                 ),
               );
             },

@@ -14,11 +14,11 @@
 		</data>
 		<key>flutter_assets/AssetManifest.bin</key>
 		<data>
-		xYxS/6KlLaO10XkWykDuQfYlTw4=
+		Kc3hd2CO0L24vo2IQfi7vUub4Do=
 		</data>
 		<key>flutter_assets/AssetManifest.json</key>
 		<data>
-		h0kxZAY0FnhfonVIq1kcYzHkC88=
+		QmqJyFgrY7XW9ytIZGCPWA/9mdY=
 		</data>
 		<key>flutter_assets/FontManifest.json</key>
 		<data>
@@ -26,11 +26,15 @@
 		</data>
 		<key>flutter_assets/NOTICES.Z</key>
 		<data>
-		IlOGvcwwp7gfhZHsT2+c9BajE+w=
+		DDTLqxwtWymm1UUMDwSfkSXJpcA=
 		</data>
 		<key>flutter_assets/NativeAssetsManifest.json</key>
 		<data>
 		re4p7E8rPLLsN+wzaPN/+AVpXTY=
+		</data>
+		<key>flutter_assets/assets/app_icon.png</key>
+		<data>
+		OUR1HdlS5dPznjWwuytOvQQcvw0=
 		</data>
 		<key>flutter_assets/assets/brain_robot_galaxy.png</key>
 		<data>
@@ -54,7 +58,7 @@
 		</data>
 		<key>flutter_assets/kernel_blob.bin</key>
 		<data>
-		QFdEtlsx+Ptuw+qp1JRC54wSS5w=
+		p6njBV9BdW8HJ+qQS4CTbPuEubk=
 		</data>
 		<key>flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
 		<data>
@@ -82,14 +86,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			sRx9YnQaxLa1+m/3ZAlbjVS09TNTfSpCO6ivkeumHSs=
+			sTLSFwNP6CzjcLdDY1/vPCv+2VekHYaxcd5I3q/G4iA=
 			</data>
 		</dict>
 		<key>flutter_assets/AssetManifest.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			isSzSxxMVwSXewcEP+Rn5FYXH/7NA+GFsanscQKraTg=
+			jaGmTzRixIHG9gXXa7fJugeybr9liJ8fhGuRIa29NmU=
 			</data>
 		</dict>
 		<key>flutter_assets/FontManifest.json</key>
@@ -103,7 +107,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			sKIqWaWLcM3Ul7vmpDRW8oE2Y13fQybhjSDBE5+8420=
+			hqI2aLPyqkAI6TdXfh1Avg8baGzWL5OghvX33CLMsks=
 			</data>
 		</dict>
 		<key>flutter_assets/NativeAssetsManifest.json</key>
@@ -111,6 +115,13 @@
 			<key>hash2</key>
 			<data>
 			lUijHkoEgTXB2U+Rkyi/tirix7s8q5ZVfHlB2ql3dss=
+			</data>
+		</dict>
+		<key>flutter_assets/assets/app_icon.png</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			G2JKvk4omBuYECStFmddT/xwjltFDdDQAa20ToCt9LU=
 			</data>
 		</dict>
 		<key>flutter_assets/assets/brain_robot_galaxy.png</key>
@@ -152,7 +163,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			/Jr5ZA1v1YMdgK6LHXO+NuiJDPiQEVYFoyRxc7luDck=
+			Os9TprQc5XwOO7C9Z3mjQkrB6kBj5xpE3PtrRiQ4ojc=
 			</data>
 		</dict>
 		<key>flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>

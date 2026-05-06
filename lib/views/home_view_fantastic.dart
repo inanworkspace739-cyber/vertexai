@@ -427,14 +427,22 @@ class _HomeViewFantasticState extends State<HomeViewFantastic>
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(14),
                       ),
-                      margin: const EdgeInsets.fromLTRB(16, 0, 16, 24),
+                      margin: const EdgeInsets.only(
+                        left: 16,
+                        right: 16,
+                        bottom: 160,
+                      ),
                       duration: const Duration(seconds: 2),
                     ),
                   );
                   return;
                 }
-                // Show the ad popup — generation always proceeds after
-                await showMagicGenerationPopup(context);
+                // Show the ad popup
+                final bool shouldGenerate = await showMagicGenerationPopup(context);
+                if (!shouldGenerate) {
+                  return;
+                }
+                
                 await vm.generateImage();
                 if (vm.state == GeneratorState.error && mounted) {
                   _showErrorSnackbar(
@@ -756,7 +764,7 @@ class _HomeViewFantasticState extends State<HomeViewFantastic>
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(12),
             ),
-            margin: const EdgeInsets.all(16),
+            margin: const EdgeInsets.only(left: 16, right: 16, bottom: 160),
           ),
         );
       } else {
@@ -825,7 +833,7 @@ class _HomeViewFantasticState extends State<HomeViewFantastic>
         backgroundColor: Colors.red.shade700,
         behavior: SnackBarBehavior.floating,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-        margin: const EdgeInsets.all(16),
+        margin: const EdgeInsets.only(left: 16, right: 16, bottom: 160),
       ),
     );
   }
@@ -907,7 +915,11 @@ class _HomeViewFantasticState extends State<HomeViewFantastic>
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(12),
                   ),
-                  margin: const EdgeInsets.all(16),
+                  margin: const EdgeInsets.only(
+                    left: 16,
+                    right: 16,
+                    bottom: 160,
+                  ),
                 ),
               );
             },

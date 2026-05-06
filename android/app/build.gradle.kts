@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.aittoooo"
+    namespace = "com.ai.ver"
     compileSdk = flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
 

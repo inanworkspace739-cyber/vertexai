@@ -247,38 +247,26 @@ class _MagicPopupContentState extends State<_MagicPopupContent>
 
                   // ── Support Message ──
                   Container(
-                    padding: const EdgeInsets.all(16),
+                    padding: const EdgeInsets.all(14),
                     decoration: BoxDecoration(
-                      color: const Color(0xFF8B5CF6).withOpacity(0.12),
-                      borderRadius: BorderRadius.circular(16),
+                      color: Colors.white.withOpacity(0.05),
+                      borderRadius: BorderRadius.circular(14),
                       border: Border.all(
-                        color: const Color(0xFF8B5CF6).withOpacity(0.3),
+                        color: Colors.white.withOpacity(0.08),
                         width: 1,
                       ),
-                      boxShadow: [
-                        BoxShadow(
-                          color: const Color(0xFF8B5CF6).withOpacity(0.1),
-                          blurRadius: 10,
-                          offset: const Offset(0, 4),
-                        ),
-                      ],
                     ),
                     child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const Padding(
-                          padding: EdgeInsets.only(top: 2),
-                          child: Text('💖', style: TextStyle(fontSize: 24)),
-                        ),
-                        const SizedBox(width: 16),
+                        const Text('🎯', style: TextStyle(fontSize: 20)),
+                        const SizedBox(width: 12),
                         Expanded(
                           child: Text(
-                            'Watch a quick ad to support us and keep Vertex AI Studio completely free.',
+                            'Watch a short video ad to\nunlock the image generator.',
                             style: GoogleFonts.inter(
                               fontSize: 13,
-                              color: Colors.white.withOpacity(0.9),
-                              height: 1.4,
-                              fontWeight: FontWeight.w500,
+                              color: Colors.white.withOpacity(0.7),
+                              height: 1.5,
                             ),
                           ),
                         ),
@@ -329,7 +317,7 @@ class _MagicPopupContentState extends State<_MagicPopupContent>
                                   ),
                                   const SizedBox(width: 8),
                                   Text(
-                                    'Watch Ad & Support Us',
+                                    'Watch Ad to Unlock',
                                     style: GoogleFonts.lexend(
                                       fontSize: 14,
                                       fontWeight: FontWeight.w600,
@@ -338,6 +326,19 @@ class _MagicPopupContentState extends State<_MagicPopupContent>
                                   ),
                                 ],
                               ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 10),
+
+                  // ── Skip Button ──
+                  TextButton(
+                    onPressed: () => Navigator.of(context).pop(false),
+                    child: Text(
+                      'Maybe later',
+                      style: GoogleFonts.inter(
+                        fontSize: 13,
+                        color: Colors.white.withOpacity(0.4),
                       ),
                     ),
                   ),
